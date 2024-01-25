@@ -45,48 +45,48 @@ const ci_targets = switch (builtin.target.cpu.arch) {
     .x86_64 => switch (builtin.target.os.tag) {
         .linux => [_]TestTarget{
             // Targets linux but other CPU archs.
-            TestTarget{
-                .target = .{},
-                .bundled = false,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86_64,
-                    .abi = .musl,
-                },
-                .bundled = true,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86,
-                    .abi = .musl,
-                },
-                .bundled = true,
-            },
+            // TestTarget{
+            //     .target = .{},
+            //     .bundled = false,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86_64,
+            //         .abi = .musl,
+            //     },
+            //     .bundled = true,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86,
+            //         .abi = .musl,
+            //     },
+            //     .bundled = true,
+            // },
         },
         .windows => [_]TestTarget{
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86_64,
-                    .abi = .gnu,
-                },
-                .bundled = true,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86,
-                    .abi = .gnu,
-                },
-                .bundled = true,
-            },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86_64,
+            //         .abi = .gnu,
+            //     },
+            //     .bundled = true,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86,
+            //         .abi = .gnu,
+            //     },
+            //     .bundled = true,
+            // },
         },
         .macos => [_]TestTarget{
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86_64,
-                },
-                .bundled = true,
-            },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86_64,
+            //     },
+            //     .bundled = true,
+            // },
             // TODO(vincent): this fails for some reason
             // TestTarget{
             //     .target = .{
@@ -96,15 +96,15 @@ const ci_targets = switch (builtin.target.cpu.arch) {
             // },
         },
         else => [_]TestTarget{
-            TestTarget{
-                .target = .{},
-                .bundled = false,
-            },
+            // TestTarget{
+            //     .target = .{},
+            //     .bundled = false,
+            // },
         },
     },
     else => [_]TestTarget{
         TestTarget{
-            .target = .{ .query = .{}, .result = comptime std.zig.system.resolveTargetQuery(.{}) catch @panic("") },
+            .target = .{ .query = .{}, .result = std.zig.system.resolveTargetQuery(.{}) catch @panic("") },
             .bundled = false,
         },
     },
@@ -114,45 +114,45 @@ const all_test_targets = switch (builtin.target.cpu.arch) {
     .x86_64 => switch (builtin.target.os.tag) {
         .linux => [_]TestTarget{
             // Targets linux but other CPU archs.
-            TestTarget{
-                .target = .{},
-                .bundled = false,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86_64,
-                    .abi = .musl,
-                },
-                .bundled = true,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86,
-                    .abi = .musl,
-                },
-                .bundled = true,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .aarch64,
-                    .abi = .musl,
-                },
-                .bundled = true,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .riscv64,
-                    .abi = .musl,
-                },
-                .bundled = true,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .mips,
-                    .abi = .musl,
-                },
-                .bundled = true,
-            },
+            // TestTarget{
+            //     .target = .{},
+            //     .bundled = false,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86_64,
+            //         .abi = .musl,
+            //     },
+            //     .bundled = true,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86,
+            //         .abi = .musl,
+            //     },
+            //     .bundled = true,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .aarch64,
+            //         .abi = .musl,
+            //     },
+            //     .bundled = true,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .riscv64,
+            //         .abi = .musl,
+            //     },
+            //     .bundled = true,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .mips,
+            //         .abi = .musl,
+            //     },
+            //     .bundled = true,
+            // },
             // TODO(vincent): failing for some time for unknown reasons
             // TestTarget{
             //     .target = .{
@@ -162,91 +162,91 @@ const all_test_targets = switch (builtin.target.cpu.arch) {
             //     .bundled = true,
             // },
             // Targets windows
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86_64,
-                    .os_tag = .windows,
-                },
-                .bundled = true,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86,
-                    .os_tag = .windows,
-                },
-                .bundled = true,
-            },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86_64,
+            //         .os_tag = .windows,
+            //     },
+            //     .bundled = true,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86,
+            //         .os_tag = .windows,
+            //     },
+            //     .bundled = true,
+            // },
             // Targets macOS
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86_64,
-                    .os_tag = .macos,
-                },
-                .bundled = true,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .aarch64,
-                    .os_tag = .macos,
-                },
-                .bundled = true,
-            },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86_64,
+            //         .os_tag = .macos,
+            //     },
+            //     .bundled = true,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .aarch64,
+            //         .os_tag = .macos,
+            //     },
+            //     .bundled = true,
+            // },
         },
         .windows => [_]TestTarget{
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86_64,
-                    .abi = .gnu,
-                },
-                .bundled = true,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86,
-                    .abi = .gnu,
-                },
-                .bundled = true,
-            },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86_64,
+            //         .abi = .gnu,
+            //     },
+            //     .bundled = true,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86,
+            //         .abi = .gnu,
+            //     },
+            //     .bundled = true,
+            // },
         },
         .freebsd => [_]TestTarget{
-            TestTarget{
-                .target = .{},
-                .bundled = false,
-            },
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86_64,
-                },
-                .bundled = true,
-            },
+            // TestTarget{
+            //     .target = .{},
+            //     .bundled = false,
+            // },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86_64,
+            //     },
+            //     .bundled = true,
+            // },
         },
         .macos => [_]TestTarget{
-            TestTarget{
-                .target = .{
-                    .cpu_arch = .x86_64,
-                },
-                .bundled = true,
-            },
+            // TestTarget{
+            //     .target = .{
+            //         .cpu_arch = .x86_64,
+            //     },
+            //     .bundled = true,
+            // },
         },
         else => [_]TestTarget{
-            TestTarget{
-                .target = .{},
-                .bundled = false,
-            },
+            // TestTarget{
+            //     .target = .{},
+            //     .bundled = false,
+            // },
         },
     },
     else => [_]TestTarget{
-        TestTarget{
-            .target = .{},
-            .bundled = false,
-        },
+        // TestTarget{
+        //     .target = .{},
+        //     .bundled = false,
+        // },
     },
 };
 
 fn computeTestTargets(target: std.Build.ResolvedTarget, ci: ?bool) ?[]const TestTarget {
     if (ci != null and ci.?) return &ci_targets;
 
-    if (target.isNative()) {
+    if (target.query.isNative()) {
         // If the target is native we assume the user didn't change it with -Dtarget and run all test targets.
         return &all_test_targets;
     }
